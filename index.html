@@ -176,25 +176,24 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We propose <span class="dnerf">SAIL</span> (Speed-Adaptive
-            Imitation Learning), a framework for enabling faster-than-
-            demonstration execution of policies by addressing key technical
-            challenges in robot dynamics and state-action distribution shifts.
-            Offline Imitation Learning (IL) methods such as
-            Behavior Cloning (BC) are a simple and effective way to acquire
-            complex robotic manipulation skills. However, existing IL-trained
-            policies are confined to execute the task at the same speed as
-            shown in the demonstration. This limits the task throughput of
-            a robotic system, a critical requirement for applications such
-            as industrial automation.
-            SAIL features four tightly-connected components:
-            High-gain control to enable high-fidelity tracking of IL policy trajectories, 
-            consistency-preserving trajectory generation to ensure smoother robot motion, 
-            adaptive speed modulation that dynamically adjusts execution speed based on motion complexity, 
-            and action scheduling to handle real-world system latencies.
-            Experimental validation on six robotic manipulation tasks shows
-            that SAIL achieves up to a <strong>4×</strong> speedup over demonstration speed
-            in simulation and up to <strong>3.2×</strong> speedup on physical robot.
+          Offline Imitation Learning (IL) methods such as Behavior Cloning (BC) 
+          are effective at acquiring complex robotic manipulation skills. 
+          However, existing IL-trained policies are confined to execute the 
+          task at the same speed as shown in the demonstration. This limits 
+          the <span class="dnerf"></span>task throughput</span> of a robotic system, a critical requirement
+           for applications such as industrial automation. In this paper, we introduce
+           and formalize the novel problem of enabling faster-than-demonstration execution
+           of visuomotor policies and identify fundamental challenges in robot dynamics 
+           and state-action distribution shifts. We instantiate the key insights as 
+           SAIL (Speed-Adaptive Imitation Learning), a <span class="dnerf">full-stack system</span> 
+           integrating four tightly-connected components: (1) a consistency-preserving
+           action inference algorithm for smooth motion at high speed, (2) high-fidelity 
+           tracking of controller-invariant motion target, (3) adaptive speed modulation 
+           that dynamically adjusts execution speed based on motion complexity, and (4)
+           action scheduling to handle real-world system latencies. Experiments in 12 tasks
+           across simulation and two real robot platforms shows that SAIL achieves up to 
+           a <strong>4× speedup</strong> over demonstration speed in simulation and 
+           up to <strong>3.2× speedup</strong> on physical robots.
           </p>
         </div>
       </div>

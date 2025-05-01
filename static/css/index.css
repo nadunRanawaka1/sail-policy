@@ -26,6 +26,14 @@ body {
    font-weight: bold;
 }
 
+video::-webkit-media-controls-volume-slider {
+display:none;
+}
+
+video::-webkit-media-controls-mute-button {
+display:none;
+}
+
 
 .teaser .hero-body {
   padding-top: 0;
