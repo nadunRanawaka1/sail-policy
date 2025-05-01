@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SAIL: Faster-than-Demonstration Execution of Imitation Learning Policies">
+  <meta name="keywords" content="SAIL, Imitation Learning, Imitation, Policy, Execution">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAIL: Faster-than-Demonstration Execution of Imitation Learning Policies</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- title and authors -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SAIL: Faster-than-Demonstration Execution of Imitation Learning Policies</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Anonymous Authors</a></span>
+          </div>
+<!-- 
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://youtu.be/7AWPs9uCsV8"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- teaser video -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <div class="centered-image">
+        <img src="static/images/teaser.png" alt="SAIL Teaser" width="75%">
+      </div> -->
+      <video id="teaser" autoplay muted loop playsinline controls height="100%">
+        <source src="./static/videos/SAIL_Teaser.mp4"
+                type="video/mp4">
+      </video>
+      <p class="has-text-centered">Scroll for more! ⬇️</p>
+      <!-- <h2 class="subtitle has-text-centered">
+        <span class="dnerf">SAIL</span> teaser video here.
+      </h2> -->
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <h2 class="subtitle has-text-centered">more SAIL videos here.</h2>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We propose <span class="dnerf">SAIL</span> (Speed-Adaptive
+            Imitation Learning), a framework for enabling faster-than-
+            demonstration execution of policies by addressing key technical
+            challenges in robot dynamics and state-action distribution shifts.
+            Offline Imitation Learning (IL) methods such as
+            Behavior Cloning (BC) are a simple and effective way to acquire
+            complex robotic manipulation skills. However, existing IL-trained
+            policies are confined to execute the task at the same speed as
+            shown in the demonstration. This limits the task throughput of
+            a robotic system, a critical requirement for applications such
+            as industrial automation.
+            SAIL features four tightly-connected components:
+            High-gain control to enable high-fidelity tracking of IL policy trajectories, 
+            consistency-preserving trajectory generation to ensure smoother robot motion, 
+            adaptive speed modulation that dynamically adjusts execution speed based on motion complexity, 
+            and action scheduling to handle real-world system latencies.
+            Experimental validation on six robotic manipulation tasks shows
+            that SAIL achieves up to a <strong>4×</strong> speedup over demonstration speed
+            in simulation and up to <strong>3.2×</strong> speedup on physical robot.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Abstract. -->
+</section>
+
+<!-- Add this script to your head section or at the end of body -->
+<script>
+  function handleVideoEnd(video) {
+    // Pause at the last frame
+    video.pause();
+    // Wait for 2 seconds before starting next loop
+    setTimeout(() => {
+      video.currentTime = 0;
+      video.play();
+    }, 2000); // 2000ms = 2 seconds pause
+  }
+  </script>
+
+<!-- Demo Videos Section with Tabs -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Real-World Results</h2>
+    
+    <!-- Video Tabs -->
+    <div class="tabs is-centered is-medium mb-3">
+      <ul>
+        <li class="is-active" data-target="video1">
+          <a><strong>Stacking Cup</strong></a>
+        </li>
+        <li data-target="video2">
+          <a><strong>Wiping Board</strong></a>
+        </li>
+        <li data-target="video3">
+          <a><strong>Baking</strong></a>
+        </li>
+        <li data-target="video4">
+          <a><strong>Folding Cloth</strong></a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Video Container -->
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <!-- Video 1 -->
+        <div id="video1" class="video-content is-active">
+          <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
+            <!-- <source src="./static/videos/stacking_cup_sail_baseline.mp4" type="video/mp4"> -->
+            <source src="./static/videos/stack.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered mt-2">Stacking Cups to Paramid Shape</p>
+        </div>
+        
+        <!-- Video 2 -->
+        <div id="video2" class="video-content">
+          <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
+            <source src="./static/videos/wipe.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered mt-2">Wiping Board</p>
+        </div>
+        
+        <!-- Video 3 -->
+        <div id="video3" class="video-content">
+          <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
+            <source src="./static/videos/bake.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered mt-2">Baking: pick up bowl and put them in the oven</p>
+        </div>
+        
+        <!-- Video 4 -->
+        <div id="video4" class="video-content">
+          <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
+            <source src="./static/videos/fold.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered mt-2">Folding Cloth</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- method overview -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Full width overview -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">SAIL System Overview</h2>
+        <div class="content has-text-justified">
+          <!-- SAIL system overview picture -->
+          <div class="centered-image">
+            <img src="static/images/SAIL_system_overview.png" alt="SAIL Overview" width="150%">
+          </div>
+          <p>
+            <strong>(a) Policy Level:</strong> Starting with synchronized observations (Obs. sync) from robot state
+            and camera inputs, the system generates (1) temporally-consistent action predictions through action-conditioned CFG and (2) time-varying action interval δt. <br> <strong>(b) Controller Level:</strong> The predicted actions are scheduled for execution while accounting for sensing-inference delays, with outdated actions being discarded. The
+            scheduled actions are executed using a high-gain controller with velocity feedforward (Vel FF) terms to track trajectory at the specified time parametrization.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Policy Level with two columns -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-4">Policy Level</h2>
+        <!-- Two equal columns for challenges -->
+        <div class="columns">
+          <!-- Challenge 1 -->
+          <div class="column is-half has-text-left">
+            <div class="content">
+              <p>
+                <strong>Challenge 1: Divergence of Consecutive Action Prediction</strong> Diffusion policy would produce diverging action predictions, which is harmful for high-speed execution. We propose a novel action-conditioned CFG to generate temporally-consistent action predictions.
+              </p>
+              <div class="centered-image">
+                <img src="static/images/method_divergence_prediction.png" alt="SAIL Overview" width="75%">
+              </div>
+            </div>
+          </div>
+
+          <!-- Challenge 2 -->
+          <div class="column is-half has-text-left">
+            <div class="content">
+              <p>
+                <strong>Challenge 2: Adaptive Speed Modulation</strong> Motion segments that are nonlinear and require precise control should not be sped up.
+                Based on the motion complexity, we adjust the execution speed adaptively.
+              </p>
+              <div class="centered-image">
+                <img src="static/images/method_adaptive_speed.png" alt="speed modulation" width="100%">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- controller level -->
+    <div class="column is-centered has-text-centered">
+      <div class="content">
+        <h2 class="title is-4">Controller Level</h2>
+        
+        <!-- Two equal columns for challenges -->
+        <div class="columns">
+          <!-- Challenge 3 -->
+          <div class="column is-half has-text-left">
+            <div class="content">
+              <p>
+                <strong>Challenge 3: Controller Behavior Shift</strong>
+                <!-- IL policy is commonly trained on commanded pose and deployed with low-gain controller. -->
+                <!-- However, the controller behavior may shift during high-speed execution. We propose to train policy using reached pose and leverage high-fidelity controller to track the trajectory precisely. -->
+              </p>
+              <div class="centered-image">
+                <!-- <img src="static/images/method1_reach_pose_command_pose.png" alt="reach pose" width="100%"> -->
+                <video poster="" id="reach pose" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/method_reach_pose.mp4"
+                        type="video/mp4">
+              </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Challenge 4 -->
+          <div class="column is-half has-text-left">
+            <div class="content">
+              <p>
+                <strong>Challenge 4: System Latency in Control Loop</strong> System latencies caused by communication and control loop can lead to out-of-distribution inputs to the policy and time-misaligned action commands to the controller.
+                To address this, we propose a novel action scheduling mechanism to handle real-world system latencies.
+              </p>
+              <div class="centered-image">
+                <img src="static/images/method_system_opt.png" alt="SAIL Overview" width="100%">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ controller level -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Evaluation</h2>
+
+    <!-- Simulation Quantitative Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-4">Quantitative Results</h2>
+        <div class="content has-text-justified">
+
+          <div class="columns">
+            <!-- real world result -->
+            <div class="column">
+              <!-- SAIL system overview picture -->
+              <div class="centered-image">
+                <img src="static/images/sail_real_result.png" alt="SAIL Overview" width="100%">
+              </div>
+              <p>
+                <strong>Real world:</strong> For throughput-with-regret (TPR) of 4× speeding up
+                execution for real-world evaluation tasks, SAIL outperforms
+                the baseline DP 32% on average.
+              </p>
+            </div>
+
+            <!-- simulation result -->
+            <div class="column">
+              <div class="centered-image">
+                <img src="static/images/TPR_sim_result.jpg" alt="Sim number" width="100%">
+              </div>
+              <p>
+                <br>
+                <strong>Simulation:</strong> We test SAIL on 5 tasks in simulation. TODO: add more description here and short summary here.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- challenge1: how controller and state affect result? -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-4"> High Gain Controller and Reached Pose Prediction</h2>
+        <div class="content has-text-justified">
+          <!-- SAIL system overview picture -->
+          <div class="centered-image">
+            <img src="static/images/replay_vs_kp.jpg" alt="replay vs kp" width="75%">
+          </div>
+          <p>
+            We examine the effects of increasing controller gains 
+            and speed for replaying demos in simulation. <strong>Left:</strong> using commanded poses performs better when replaying at the original
+            speed (c = 1) but using reached poses matches performance
+            when using high gains. <strong>Right:</strong> A high-gain controller using
+            reached poses performs better than one using commanded
+            poses at a higher execution speed.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- challenge2: how CFG help? -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-4">What makes a good action condition for Classifier-Free Guidance? </h2>
+        <div class="content has-text-justified">
+          <!-- SAIL system overview picture -->
+          <!-- <div class="centered-image">
+            <img src="static/images/SAIL_system_overview.png" alt="SAIL Overview" width="150%">
+          </div> -->
+                  <!-- Two equal columns for challenges -->
+          <div class="columns">
+            <!-- UAD video -->
+            <div class="column is-half">
+              <div class="content">
+                <div class="centered-image">
+                  <!-- <img src="static/images/method1_reach_pose_command_pose.png" alt="reach pose" width="100%"> -->
+                  <video poster="" id="reach pose" autoplay controls muted loop playsinline height="70%">
+                    <source src="./static/videos/cond_bm_false_cfg_weight_1_xy.mp4"
+                          type="video/mp4">
+                  </video>
+                </div>
+                <p>
+                  <strong>Action conditioned on unconditional action distribution</strong>
+                </p>
+              </div>
+            </div>
+
+            <!-- UAD temporally perturbed -->
+            <div class="column is-half">
+              <div class="content">
+                <div class="centered-image">
+                  <video poster="" id="reach pose" autoplay controls muted loop playsinline height="70%">
+                    <source src="./static/videos/cond_bm_false_cfg_weight_1_xy_spatial.mp4"
+                          type="video/mp4">
+                  </video>
+                </div>
+                <p>
+                  <strong>Action conditioned on temporally perturbed action</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+          <p>
+            <span style="color: #FFD700;">Yellow:</span> Action condition, 
+            <span style="color: #808080;">Grey:</span> Unconditional action distribution, 
+            <span style="color: #FF0000;">Red:</span> Conditional action distribution.
+            CFG works best when the action condition is in unconditional action distribution.
+          </p>
+        </div>
+
+        <div class="columns is-centered">
+          <!-- First iframe -->
+          <div class="column is-half has-text-centered">
+            <iframe src="static/images/can_cfg_trajectory_demo11.html" width="75%" height="500" frameborder="0"></iframe>
+            <p class="mt-2">Can task rollout trajectory <strong>with CFG</strong>. Action conditioned on unconditional action distribution</p>
+          </div>
+          
+          <!-- Second iframe -->
+          <div class="column is-half has-text-centered">
+            <iframe src="static/images/can_noguide_trajectory_demo11.html" width="75%" height="500" frameborder="0"></iframe>
+            <p class="mt-2">Can task rollout trajectory <strong>without CFG</strong>.</p>
+          </div>
+        </div>
+        <!-- <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <iframe src="static/images/noguide_trajectory.html" width="700" height="500" frameborder="0"></iframe>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- challenge3:  speed adaptation -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-4">Adaptive Speed Modulation Increases Task Success Rate</h2>
+        <div class="content has-text-justified">
+          <!-- SAIL system overview picture -->
+          <div class="centered-image">
+            <!-- <img src="static/images/method1_reach_pose_command_pose.png" alt="reach pose" width="100%"> -->
+            <video poster="" id="reach pose" autoplay controls muted loop playsinline width="85%">
+            <source src="./static/videos/adaptive_speed-squarecan.mp4"
+                    type="video/mp4">
+          </video>
+          </div>
+          <p>
+            Compared to a simple gripper heuristic, Adaptive Speed Modulation will detect the motion complexity of the action sequence and adjust the execution speed accordingly.
+            As an inherent result, policy execution is only sped up when the motion is linear and smooth, and is only slowed down for complex motion 
+            (e.g. precise manipulation). In the above video, blue stars represent extracted waypoints and green stars represent clusters of complex motion segments.
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+        <!-- Speed adaptation plot -->
+        <div class="columns">
+          <div class="column is-half">
+            <div class="content">
+              <div class="centered-image">
+                <img src="static/images/success_rate_plot_AS.png" alt="reach pose" width="90%">
+              </div>
+            </div>
+          </div>
+
+          <!-- Plot Description -->
+          <div class="column is-half">
+            <div class="content">
+              <p>
+                <strong>Metrics.</strong>  Adaptive Speed Modulation is necessary
+                for success in high-precision tasks. As seen in the results
+                to the left, our ablation baseline (SAIL-AS) without ASM achieves a reduced success rate
+                when compared to SAIL. Since tasks like Square, Stack, and Mug
+                require precise motion, even minor errors in tracking or model
+                prediction can lead to failure, hence why it is important to slow
+                down.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Limitations</h2>
+    <p>
+      While SAIL shows promising results in both accelerating policy execution in simulation and real-world deployment,
+      we do not explicitly tackle the dynamics shift of robot-object interaction. Future research could address this by developing methods to incorporate explicit dynamics modeling into policies, either through learning speed-dependent dynamic models or leveraging physics simulation during training.
+
+      <br>
+
+      Adaptive Speed Modulation is also currently only applied in simulation, while a gripper heuristic for slowdown is used in real experiments. We found that 
+      ASM would not slow down consistently in the right segments due to the noisiness of real data. Future research could aim to develop upon this problem.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Acknowledgement</h2>
+    <p>
+      TODO: add acknowledgement
+    </p>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>placeholder 7</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website based on <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
