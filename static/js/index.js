@@ -20,33 +20,73 @@ function setInterpolationImage(i) {
 }
 
 
-// Video tab functionality
-document.addEventListener('DOMContentLoaded', () => {
-  // Get all tabs
-  const tabs = document.querySelectorAll('.tabs li');
-  const videos = document.querySelectorAll('.video-content');
+// // Video tab functionality (old)
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Get all tabs
+//   const tabs = document.querySelectorAll('.tabs li');
+//   const videos = document.querySelectorAll('.video-content');
 
-  tabs.forEach(tab => {
+//   tabs.forEach(tab => {
+//     tab.addEventListener('click', () => {
+//       // Remove active class from all tabs
+//       tabs.forEach(t => t.classList.remove('is-active'));
+//       // Add active class to clicked tab
+//       tab.classList.add('is-active');
+
+//       // Hide all videos
+//       videos.forEach(video => {
+//         video.classList.remove('is-active');
+//         // Pause all videos
+//         const videoElement = video.querySelector('video');
+//         if (videoElement) videoElement.pause();
+//       });
+
+//       // Show selected video
+//       const targetVideo = document.getElementById(tab.dataset.target);
+//       targetVideo.classList.add('is-active');
+//       // Play the selected video
+//       const videoElement = targetVideo.querySelector('video');
+//       if (videoElement) videoElement.play();
+//     });
+//   });
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Handle Real-World Results tabs
+  const realWorldTabs = document.querySelectorAll('.real-world-tabs li');
+  realWorldTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      // Remove active class from all tabs
-      tabs.forEach(t => t.classList.remove('is-active'));
+      // Remove active class from all tabs in this section
+      realWorldTabs.forEach(t => t.classList.remove('is-active'));
       // Add active class to clicked tab
       tab.classList.add('is-active');
-
-      // Hide all videos
-      videos.forEach(video => {
-        video.classList.remove('is-active');
-        // Pause all videos
-        const videoElement = video.querySelector('video');
-        if (videoElement) videoElement.pause();
-      });
-
+      
+      // Hide all video content in this section
+      const videos = document.querySelectorAll('.real-world-content .video-content');
+      videos.forEach(v => v.classList.remove('is-active'));
+      
       // Show selected video
-      const targetVideo = document.getElementById(tab.dataset.target);
-      targetVideo.classList.add('is-active');
-      // Play the selected video
-      const videoElement = targetVideo.querySelector('video');
-      if (videoElement) videoElement.play();
+      const targetId = tab.dataset.target;
+      document.getElementById(targetId).classList.add('is-active');
+    });
+  });
+
+  // Handle Simulation Results tabs
+  const simTabs = document.querySelectorAll('.sim-tabs li');
+  simTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active class from all tabs in this section
+      simTabs.forEach(t => t.classList.remove('is-active'));
+      // Add active class to clicked tab
+      tab.classList.add('is-active');
+      
+      // Hide all video content in this section
+      const videos = document.querySelectorAll('.sim-content .video-content');
+      videos.forEach(v => v.classList.remove('is-active'));
+      
+      // Show selected video
+      const targetId = tab.dataset.target;
+      document.getElementById(targetId).classList.add('is-active');
     });
   });
 });

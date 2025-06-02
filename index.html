@@ -219,7 +219,7 @@
     <h2 class="title is-3 has-text-centered">Real-World Results</h2>
     
     <!-- Video Tabs -->
-    <div class="tabs is-centered is-medium mb-3">
+    <div class="tabs is-centered is-medium mb-3 real-world-tabs">
       <ul>
         <li class="is-active" data-target="video1">
           <a><strong>Stacking Cup</strong></a>
@@ -233,11 +233,17 @@
         <li data-target="video4">
           <a><strong>Folding Cloth</strong></a>
         </li>
+        <li data-target="video5">
+          <a><strong>Plate Fruits</strong></a>
+        </li>
+        <li data-target="video6">
+          <a><strong>Bimanual Serve</strong></a>
+        </li>
       </ul>
     </div>
 
     <!-- Video Container -->
-    <div class="columns is-centered">
+    <div class="columns is-centered real-world-content">
       <div class="column is-full">
         <!-- Video 1 -->
         <div id="video1" class="video-content is-active">
@@ -245,7 +251,7 @@
             <!-- <source src="./static/videos/stacking_cup_sail_baseline.mp4" type="video/mp4"> -->
             <source src="./static/videos/real-robot/stack.mp4" type="video/mp4">
           </video>
-          <p class="has-text-centered mt-2">Stacking Cups to Paramid Shape</p>
+          <p class="has-text-centered mt-2">Stacking Cups to Pyramid Shape</p>
         </div>
         
         <!-- Video 2 -->
@@ -270,6 +276,61 @@
             <source src="./static/videos/real-robot/fold.mp4" type="video/mp4">
           </video>
           <p class="has-text-centered mt-2">Folding Cloth</p>
+        </div>
+
+        <!-- Video 5 -->
+        <div id="video5" class="video-content">
+          <video autoplay muted loop playsinline controls height="300px" width="100%" onended="handleVideoEnd(this)">
+            <source src="./static/videos/real-robot/plate_fruits.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered mt-2">Plate Fruits</p>
+        </div>
+
+        <!-- Video 6: Bimanual Serve -->
+        <div id="video6" class="video-content">
+          <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
+            <source src="./static/videos/real-robot/bimanual_serve.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered mt-2">Bimanual Serve: pick up the peach, put it in the bowl and serve</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Simulation Videos Section with Tabs -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Simulation Results</h2>
+    
+    <!-- Video Tabs -->
+    <div class="tabs is-centered is-medium mb-3 sim-tabs">
+      <ul>
+        <li class="is-active" data-target="sim1">
+          <a><strong>Can</strong></a>
+        </li>
+        <li data-target="sim2">
+          <a><strong>Mug Cleanup</strong></a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Video Container -->
+    <div class="columns is-centered sim-content">
+      <div class="column is-full">
+        <!-- Sim Video 1 -->
+        <div id="sim1" class="video-content is-active">
+          <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
+            <source src="./static/videos/sim/can.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered mt-2">Can</p>
+        </div>
+        <!-- Sim Video 2 -->
+        <div id="sim2" class="video-content">
+          <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
+            <source src="./static/videos/sim/mug_cleanup.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered mt-2">Mug Cleanup: open the drawer, put the mug in it and close the drawer</p>
         </div>
       </div>
     </div>
