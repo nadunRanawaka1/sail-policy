@@ -213,10 +213,10 @@
   }
   </script>
 
-<!-- Demo Videos Section with Tabs -->
+      <!-- Demo Videos Section with Tabs -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Real-World Results</h2>
+    <h2 class="title is-3 has-text-centered">Real-World Rollouts</h2>
     
     <!-- Video Tabs -->
     <div class="tabs is-centered is-medium mb-3 real-world-tabs">
@@ -301,7 +301,7 @@
 <!-- Simulation Videos Section with Tabs -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Simulation Results</h2>
+    <h2 class="title is-3 has-text-centered">Simulation Rollouts</h2>
     
     <!-- Video Tabs -->
     <div class="tabs is-centered is-medium mb-3 sim-tabs">
@@ -336,6 +336,8 @@
     </div>
   </div>
 </section>
+
+
 
 <!-- method overview -->
 <section class="section">
@@ -440,37 +442,37 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Evaluation</h2>
 
+
+
     <!-- Simulation Quantitative Results -->
     <div class="columns is-centered has-text-centered">
       <div class="column">
         <h2 class="title is-4">Quantitative Results</h2>
         <div class="content has-text-justified">
 
-          <div class="columns">
-            <!-- real world result -->
-            <div class="column">
-              <!-- SAIL system overview picture -->
-              <div class="centered-image">
-                <img src="static/images/sail_real_result.png" alt="SAIL Overview" width="100%">
-              </div>
-              <p>
-                <strong>Real world:</strong> For throughput-with-regret (TPR) of 4× speeding up
-                execution for real-world evaluation tasks, SAIL outperforms
-                the baseline DP 32% on average.
-              </p>
-            </div>
-
-            <!-- simulation result -->
-            <div class="column">
-              <div class="centered-image">
-                <img src="static/images/TPR_sim_result.jpg" alt="Sim number" width="100%">
-              </div>
-              <p>
-                <br>
-                <strong>Simulation:</strong> We test SAIL on 5 tasks in simulation. TODO: add more description here and short summary here.
-              </p>
-            </div>
+          <!-- Real-world result section -->
+          <div class="centered-image">
+            <img src="static/images/results/real_results_table.png" alt="SAIL real results table" width="100%">
           </div>
+          <p style="text-align: center;">
+            <br>
+            <strong>Real world:</strong> We test SAIL on 7 real-world tasks, with SAIL outperforming our most competitve baseline
+            in most tasks. SAIL achieves up to a <strong>3.2× speedup</strong> over the demonstration speed.
+          </p>
+
+          <div style="margin-top: 2em;"></div> 
+
+          <!-- Simulation result section -->
+          <div class="centered-image">
+            <img src="static/images/results/sim_results_table.png" alt="SAIL sim results table" width="100%">
+          </div>
+          <p style="text-align: center;">
+            <br>
+            <strong>Simulation:</strong>  we test on 5 simulated tasks from the 
+                <a href="https://robomimic.github.io/" target="_blank">RoboMimic</a> and
+                 <a href="https://mimicgen.github.io/" target="_blank">MimicGen</a> task suites. 
+                 SAIL can achieve up <strong>3x throughout</strong>  of baselines without sacrificing task success rate.
+          </p>
 
         </div>
       </div>
@@ -617,6 +619,18 @@
           </div>
         </div>
       </div>
+
+
+    <!-- Interesting Phenomena/Takeaways? -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-4"> Interesting Phenomena</h2>
+        <div class="content has-text-justified">
+            We show some interesting phenomena that we observed during the experiments.
+          </p>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
