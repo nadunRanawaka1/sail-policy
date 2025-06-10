@@ -504,11 +504,6 @@
       <div class="column">
         <h2 class="title is-4">What makes a good action condition for Classifier-Free Guidance? </h2>
         <div class="content has-text-justified">
-          <!-- SAIL system overview picture -->
-          <!-- <div class="centered-image">
-            <img src="static/images/SAIL_system_overview.png" alt="SAIL Overview" width="150%">
-          </div> -->
-                  <!-- Two equal columns for challenges -->
           <div class="columns">
             <!-- UAD video -->
             <div class="column is-half">
@@ -622,15 +617,93 @@
 
 
     <!-- Interesting Phenomena/Takeaways? -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-4"> Interesting Phenomena</h2>
-        <div class="content has-text-justified">
-            We show some interesting phenomena that we observed during the experiments.
-          </p>
+   <!-- … your outer wrapper … -->
+<div class="columns is-centered has-text-centered">
+  <div class="column">
+    <h2 class="title is-4">Interesting Phenomena</h2>
+    <div class="content has-text-centered">
+      <p>
+        We show some interesting phenomena that we observed during the experiments:
+      </p>
+    </div>
+
+    <!-- Two side by side videos -->
+    <div class="columns is-centered ">
+      <!-- first video + caption -->
+      <div class="column is-narrow has-text-centered">
+        <div style="display:inline-block; width:480px;">
+        <div class="video-crop">
+          <video autoplay muted loop playsinline controls>
+            <source src="./static/videos/real-robot/reactive_compressed.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered mt-2">
+          <strong>Reactiveness:</strong>
+          SAIL reacts much faster to changes in the environment and recovers quicker from failures.
+        </p>
         </div>
       </div>
+
+      <!-- second video only -->
+      <div class="column is-narrow has-text-centered">
+        <div style="display:inline-block; width:480px;">
+        <div class="video-crop">
+          <video autoplay muted loop playsinline controls>
+            <source src="./static/videos/real-robot/without_slowdown.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered mt-2">
+          <strong>Hardware limitations:</strong>
+          since the gripper moves slower than the robot arm, 
+          not slowing down causes missed grasps.
+        </p>
+      </div>
+      </div>
     </div>
+
+    <!-- Second row of two side by side videos -->
+    <div class="columns is-centered ">
+      <!-- first video + caption -->
+      <div class="column is-narrow has-text-centered">
+        <div style="display:inline-block; width:480px;">
+        <div class="video-crop">
+          <video autoplay muted loop playsinline controls>
+            <source src="./static/videos/real-robot/low_fidelity_controller.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered mt-2">
+          <strong>Poor controller:</strong>
+          using a low-fidelity controller leads to poor tracking performance and task failure.
+        </p>
+        </div>
+      </div>
+
+      <!-- second video only -->
+      <div class="column is-narrow has-text-centered">
+        <div style="display:inline-block; width:480px;">
+        <div class="video-crop">
+          <video autoplay muted loop playsinline controls>
+            <source src="./static/videos/sim/can_interesting_failures.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-centered mt-2">
+          <strong>Interesting failures:</strong>
+          when tuned to the maximum speed, SAIL can fail in interesting ways, such as throwing objects
+          out of the workspace.
+        </p>
+      </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<!-- … -->
+
 
   </div>
 </section>

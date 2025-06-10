@@ -169,3 +169,20 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+
+.video-crop {
+  width: 480px;               /* or any fixed %/px you prefer */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-crop video {
+  position: absolute;
+  left: -20%;
+  transform: translateX(20%); /* crops 20% from right */
+  width: 160%;
+  height: 100%;
+  object-fit: cover;
+}
