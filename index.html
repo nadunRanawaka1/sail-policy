@@ -38,8 +38,8 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="">Nadun Ranawaka Arachchige*</a>, <a href="https://chenzheny.github.io/">Zhenyang Chen*</a>, <a href="https://wonsuhkjung.wordpress.com/">Wonsuhk Jung</a>, 
-              <a href="">Woo Chul Shin</a>, <a href="">Rohan Bansal</a>, <a href="">Pierre Barraso</a>, <a href="">Yu Hang He</a>,
-              <a href="https://eiclab.scs.gatech.edu/pages/team.html">Yingyan Celine Lin</a>, <a href="">Benjamin Joffe</a>,
+              <a href="https://swc0620.github.io/profile/">Woo Chul Shin</a>, <a href="https://rbansal.dev/">Rohan Bansal</a>, <a href="">Pierre Barraso</a>, <a href="https://fptd.gatech.edu/people/yuhang-he">Yu Hang He</a>,
+              <a href="https://eiclab.scs.gatech.edu/pages/team.html">Yingyan Celine Lin</a>, <a href="https://research.gatech.edu/people/benjamin-joffe">Benjamin Joffe</a>,
               <a href="https://www.shreyaskousik.com/">Shreyas Kousik*</a>, <a href="https://faculty.cc.gatech.edu/~danfei/">Danfei Xu*</a></span>
               <div class="is-size-5 publication-authors">
                 <span class="author-block">Georgia Institute of Technology</span>
@@ -61,7 +61,7 @@
         <img src="static/images/teaser.png" alt="SAIL Teaser" width="75%">
       </div> -->
       <video id="teaser" autoplay muted loop playsinline controls height="100%">
-        <source src="./static/videos/CoRL-teaser.mp4" type="video/mp4">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
       </video>      
       <p class="has-text-centered">Scroll for more! ⬇️</p>
       <!-- <h2 class="subtitle has-text-centered">
@@ -73,7 +73,7 @@
 
 
 <!-- abstract -->
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -102,6 +102,43 @@
         </div>
       </div>
     </div>
+    -->
+    <!-- Abstract. -->
+<!-- </section> --> 
+
+<!-- abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column ">
+        <h4 class="title is-4"><strong>TL;DR</strong> - SAIL (Speed Adaptation for Imitation Learning) is a system for improving the speed and 
+          throughput of robots trained with imitation learning.</h4>
+        <div class="content has-text-justified">
+          <p>
+          
+<!-- 
+          Offline Imitation Learning (IL) methods such as Behavior Cloning (BC) 
+          are effective at acquiring complex robotic manipulation skills. 
+          However, existing IL-trained policies are confined to execute the 
+          task at the same speed as shown in the demonstration. This limits 
+          the <span class="dnerf"></span>task throughput</span> of a robotic system, a critical requirement
+           for applications such as industrial automation. In this paper, we introduce
+           and formalize the novel problem of enabling faster-than-demonstration execution
+           of visuomotor policies and identify fundamental challenges in robot dynamics 
+           and state-action distribution shifts. We instantiate the key insights as 
+           SAIL (Speed-Adaptive Imitation Learning), a <span class="dnerf">full-stack system</span> 
+           integrating four tightly-connected components: (1) a consistency-preserving
+           action inference algorithm for smooth motion at high speed, (2) high-fidelity 
+           tracking of controller-invariant motion target, (3) adaptive speed modulation 
+           that dynamically adjusts execution speed based on motion complexity, and (4)
+           action scheduling to handle real-world system latencies. Experiments in 12 tasks
+           across simulation and two real robot platforms shows that SAIL achieves up to 
+           a <strong>4× speedup</strong> over demonstration speed in simulation and 
+           up to <strong>3.2× speedup</strong> on physical robots. -->
+          </p>
+        </div>
+      </div>
+    </div>
     <!-- Abstract. -->
 </section>
 
@@ -121,7 +158,7 @@
       <!-- Demo Videos Section with Tabs -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">🌊 Smoother, 🚀 Faster, ✨ Better</h2>
+    <h2 class="title is-3 has-text-centered"> 🚀 Faster, 🌊 Smoother, ✨ Better</h2>
     <p class="has-text-centered">
       <!-- We extensively test SAIL on <strong>6 tasks</strong> across <strong>two real robot</strong> platforms, demonstrating smoother trajectory and careful system design lead to <strong>3.2× speedup</strong> over demonstration speed. -->
     </p>
@@ -205,19 +242,23 @@
   </div>
 </section>
 
-<!-- method overview -->
+<!-- method overview and challenges -->
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Full width overview -->
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">⛵ SAIL System Overview</h2>
+        <h2 class="title is-3">⛵ SAIL System Overview and Challenges</h2>
         <div class="content has-text-justified">
           <!-- SAIL system overview picture -->
           <div class="centered-image">
             <img src="static/images/SAIL_system_overview.png" alt="SAIL Overview" width="150%">
           </div>
           <p>
+            Speeding up visuomotor policies is a <strong> full-stack</strong> problem that requires a careful
+            redesign of imitation learning framework. SAIL provides a recipe to address some of the challenges that arise 
+            from sped up execution -
+            <br>
             <strong>(a) Policy Level:</strong> Starting with synchronized observations (Obs. sync) from robot state
             and camera inputs, the system generates (1) temporally-consistent action predictions through action-conditioned CFG and (2) time-varying action interval δt. <br> <strong>(b) Controller Level:</strong> The predicted actions are scheduled for execution while accounting for sensing-inference delays, with outdated actions being discarded. The
             scheduled actions are executed using a high-gain controller with velocity feedforward (Vel FF) terms to track trajectory at the specified time parametrization.
@@ -233,7 +274,7 @@
 <!-- ##### Key Findings ##### -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered mb-3">🔍 Key Findings</h2>
+    <h2 class="title is-3 has-text-centered mb-3"></h2>
     <div class="content has-text-justified">
       <p>
 
@@ -242,12 +283,20 @@
     
     <!-- Block 1 -->
     <div class="block mb-4">
-      <div class="box mb-2">
-        <p class="has-text-justified">
-          <!-- <strong>1. Temporally-Consistent Action Prediction</strong><br>
-          Diffusion policy would produce diverging action predictions, which is harmful for high-speed execution. We propose action-conditioned CFG to generate temporally-consistent action predictions. -->
-        </p>
+      <!-- <div class="box mb-2"> -->
+        <h2 class="title is-4 has-text-left mb-3"> Challenge 1. Minimizing Controller Dynamics Shifts</h2>
+        <div class="has-text-centered">
+        <video autoplay muted loop playsinline controls width="75%">
+          <source src="./static/videos/method_reach_pose.mp4" type="video/mp4">
+        </video>
       </div>
+        <p class="has-text-justified">
+          
+          Naively using the teleoperation commands from the demonstrator to speed up execution results in an altered motion trajectory.
+          To solve this, SAIL trains policies on the actual reached poses of the robot and uses a high-gain controller to track these poses.
+        </p>
+      <!-- </div> -->
+      
       <video autoplay muted loop playsinline controls width="100%">
         <source src="./static/videos/SAIL_finding1.mp4" type="video/mp4">
       </video>
@@ -255,12 +304,20 @@
 
     <!-- Block 2 -->
     <div class="block mb-4">
-      <div class="box mb-2">
-        <p class="has-text-justified">
-          <!-- <strong>2. Adaptive Speed Modulation</strong><br>
-          Motion segments that are nonlinear and require precise control should not be sped up. Based on the motion complexity, we adjust the execution speed adaptively. -->
-        </p>
+      <!-- <div class="box mb-2"> -->
+       <h2 class="title is-4 has-text-left mb-3"> Challenge 2. Generating Consistent Action Trajectories</h2>
+       <div class="has-text-centered">
+        <video autoplay muted loop playsinline controls width="75%">
+          <source src="./static/videos/divergence_animation.mp4" type="video/mp4">
+        </video>
       </div>
+        <p class="has-text-justified">
+          
+          SAIL performs asynchronous inference during execution i.e. a new inference is started before all the actions from the previous prediction
+          are executed. This enables continuous execution without pausing for inference. However, this can sometimes lead to diverging predictions that 
+          result in jerky robot movement. To address this, SAIL conditions the new prediction on the previous one to generate consistent smooth trajectories.
+        </p>
+      <!-- </div> -->
       <video autoplay muted loop playsinline controls width="100%">
         <source src="./static/videos/SAIL_finding2.mp4" type="video/mp4">
       </video>
@@ -268,12 +325,12 @@
 
     <!-- Block 3 -->
     <div class="block mb-4">
-      <div class="box mb-2">
+      <!-- <div class="box mb-2"> -->
         <p class="has-text-justified">
           <!-- <strong>3. High-Fidelity Controller</strong><br>
           Controller behavior may shift during high-speed execution. We propose to train policy using reached pose and leverage high-fidelity controller to track the trajectory precisely. -->
         </p>
-      </div>
+      <!-- </div> -->
       <video autoplay muted loop playsinline controls width="100%">
         <source src="./static/videos/finding3.mp4" type="video/mp4">
       </video>
@@ -428,7 +485,7 @@
     <!-- challenge2: how CFG help? -->
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-4">What makes a good action condition for Classifier-Free Guidance? </h2>
+        <h2 class="title is-4">What makes a good action condition for guidance? </h2>
         <div class="content has-text-justified">
           <div class="columns">
             <!-- UAD video -->
@@ -466,7 +523,7 @@
             <span style="color: #FFD700;">Yellow:</span> Action condition, 
             <span style="color: #808080;">Grey:</span> Unconditional action distribution, 
             <span style="color: #FF0000;">Red:</span> Conditional action distribution.
-            CFG works best when the action condition is in unconditional action distribution.
+            Guidance works best when the action condition is in unconditional action distribution.
           </p>
         </div>
 
@@ -474,13 +531,13 @@
           <!-- First iframe -->
           <div class="column is-half has-text-centered">
             <iframe src="static/images/can_cfg_trajectory_demo11.html" width="75%" height="500" frameborder="0"></iframe>
-            <p class="mt-2">Can task rollout trajectory <strong>with CFG</strong>. Action conditioned on unconditional action distribution</p>
+            <p class="mt-2">Can task rollout trajectory <strong>with EAG</strong>. Action conditioned on unconditional action distribution</p>
           </div>
           
           <!-- Second iframe -->
           <div class="column is-half has-text-centered">
             <iframe src="static/images/can_noguide_trajectory_demo11.html" width="75%" height="500" frameborder="0"></iframe>
-            <p class="mt-2">Can task rollout trajectory <strong>without CFG</strong>.</p>
+            <p class="mt-2">Can task rollout trajectory <strong>without EAG</strong>.</p>
           </div>
         </div>
         <!-- <div class="columns is-centered">
