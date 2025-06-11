@@ -310,6 +310,12 @@
         <li data-target="sim2">
           <a><strong>Mug Cleanup</strong></a>
         </li>
+        <li data-target="sim3">
+          <a><strong>Lift</strong></a>
+        </li>
+        <li data-target="sim4">
+          <a><strong>Stack</strong></a>
+        </li>
       </ul>
     </div>
 
@@ -321,14 +327,28 @@
           <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
             <source src="./static/videos/sim/can.mp4" type="video/mp4">
           </video>
-          <!-- <p class="has-text-centered mt-2">Can</p> -->
+          <p class="has-text-centered mt-2">Pick up the can and put it in the box</p>
         </div>
         <!-- Sim Video 2 -->
         <div id="sim2" class="video-content">
           <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
-            <source src="./static/videos/sim/mug_cleanup.mp4" type="video/mp4">
+            <source src="./static/videos/sim/mug.mp4" type="video/mp4">
           </video>
-          <!-- <p class="has-text-centered mt-2">Mug Cleanup: open the drawer, put the mug in it and close the drawer</p> -->
+          <p class="has-text-centered mt-2">Open the drawer, put the mug in it and close the drawer</p>
+        </div>
+        <!-- Sim Video 3: Lift -->
+        <div id="sim3" class="video-content">
+          <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
+            <source src="./static/videos/sim/lift.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered mt-2">Lift the block</p>
+        </div>
+        <!-- Sim Video 4: Stack -->
+        <div id="sim4" class="video-content">
+          <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
+            <source src="./static/videos/sim/stack.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-centered mt-2">Stack the red block on the green one</p>
         </div>
       </div>
     </div>
