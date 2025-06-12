@@ -256,12 +256,12 @@
           </div>
           <p>
             Speeding up visuomotor policies is a <strong> full-stack</strong> problem that requires a careful
-            redesign of imitation learning framework. SAIL provides a recipe to address some of the challenges that arise 
+            redesign of the imitation learning framework. SAIL provides a recipe to address the challenges that arise 
             from sped up execution -
             <br>
-            <strong>(a) Policy Level:</strong> Starting with synchronized observations (Obs. sync) from robot state
+            <strong>(a) Policy Level:</strong> Starting with synchronized observations from robot state
             and camera inputs, the system generates (1) temporally-consistent action predictions through action-conditioned CFG and (2) time-varying action interval δt. <br> <strong>(b) Controller Level:</strong> The predicted actions are scheduled for execution while accounting for sensing-inference delays, with outdated actions being discarded. The
-            scheduled actions are executed using a high-gain controller with velocity feedforward (Vel FF) terms to track trajectory at the specified time parametrization.
+            scheduled actions are executed using a high-gain controller with velocity feedforward terms to track trajectory at the specified time parametrization.
           </p>
         </div>
       </div>
@@ -315,7 +315,7 @@
           
           SAIL performs asynchronous inference during execution i.e. a new inference is started before all the actions from the previous prediction
           are executed. This enables continuous execution without pausing for inference. However, this can sometimes lead to diverging predictions that 
-          result in jerky robot movement. To address this, SAIL conditions the new prediction on the previous one to generate consistent smooth trajectories.
+          result in jerky robot movement. To address this, SAIL conditions the new prediction on the previous one to generate consistent and smooth trajectories.
         </p>
       <!-- </div> -->
       <video autoplay muted loop playsinline controls width="100%">
@@ -326,10 +326,14 @@
     <!-- Block 3 -->
     <div class="block mb-4">
       <!-- <div class="box mb-2"> -->
+        <h2 class="title is-4 has-text-left mb-3"> Challenge 3. Adaptive Speed Modulation</h2>
         <p class="has-text-justified">
-          <!-- <strong>3. High-Fidelity Controller</strong><br>
-          Controller behavior may shift during high-speed execution. We propose to train policy using reached pose and leverage high-fidelity controller to track the trajectory precisely. -->
+          It is sometimes necessary to slow down the execution of the policy to ensure success in tasks that require high precision,
+          or due to hardware limitations.
+          SAIL uses Adaptive Speed Modulation (ASM) to adjust the execution speed of the policy based on the complexity of the action sequence.
+          This allows SAIL to speed up for linear motions and slow down for precise manipulation.
         </p>
+
       <!-- </div> -->
       <video autoplay muted loop playsinline controls width="100%">
         <source src="./static/videos/finding3.mp4" type="video/mp4">
@@ -338,12 +342,19 @@
 
     <!-- Block 4 -->
     <div class="block mb-4">
-      <div class="box mb-2">
+      <!-- <div class="box mb-2"> -->
+        <h2 class="title is-4 has-text-left mb-3"> Challenge 4. Handling system latencies</h2>
         <p class="has-text-justified">
-          <!-- <strong>4. System Latency Handling</strong><br>
-          System latencies can lead to out-of-distribution inputs and time-misaligned commands. We propose an action scheduling mechanism to handle real-world system latencies. -->
+          
+          System latencies can lead to out-of-distribution inputs, time-misaligned commands or pausing during inference. 
+          We propose an action scheduling mechanism to handle real-world system latencies and maintain continuous execution.
+
         </p>
-      </div>
+
+        <div class="centered-image">
+            <img src="static/images/method_system_opt.png" alt="Figure showing how latencies are handled" width="75%">
+          </div>
+      <!-- </div> -->
       <video autoplay muted loop playsinline controls width="100%">
         <source src="./static/videos/finding4.mp4" type="video/mp4">
       </video>
@@ -531,7 +542,7 @@
           <!-- First iframe -->
           <div class="column is-half has-text-centered">
             <iframe src="static/images/can_cfg_trajectory_demo11.html" width="75%" height="500" frameborder="0"></iframe>
-            <p class="mt-2">Can task rollout trajectory <strong>with EAG</strong>. Action conditioned on unconditional action distribution</p>
+            <p class="mt-2">Can task rollout trajectory <strong>with EAG</strong>. </p>
           </div>
           
           <!-- Second iframe -->
@@ -549,61 +560,60 @@
     </div>
 
     <!-- challenge3:  speed adaptation -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-4">Adaptive Speed Modulation Increases Task Success Rate</h2>
-        <div class="content has-text-justified">
+    <!-- <div class="columns is-centered has-text-centered"> -->
+      <!-- <div class="column"> -->
+        <!-- <h2 class="title is-4">Adaptive Speed Modulation Increases Task Success Rate</h2> -->
+        <!-- <div class="content has-text-justified"> -->
           <!-- SAIL system overview picture -->
-          <div class="centered-image">
-            <!-- <img src="static/images/method1_reach_pose_command_pose.png" alt="reach pose" width="100%"> -->
-            <video poster="" id="reach pose" autoplay controls muted loop playsinline width="85%">
-            <source src="./static/videos/adaptive_speed-squarecan.mp4"
-                    type="video/mp4">
-          </video>
-          </div>
-          <p>
-            Compared to a simple gripper heuristic, Adaptive Speed Modulation will detect the motion complexity of the action sequence and adjust the execution speed accordingly.
-            As an inherent result, policy execution is only sped up when the motion is linear and smooth, and is only slowed down for complex motion 
-            (e.g. precise manipulation). In the above video, blue stars represent extracted waypoints and green stars represent clusters of complex motion segments.
+          <!-- <div class="centered-image"> -->
+            <!-- <video poster="" id="reach pose" autoplay controls muted loop playsinline width="85%"> -->
+            <!-- <source src="./static/videos/adaptive_speed-squarecan.mp4" -->
+                    <!-- type="video/mp4"> -->
+          <!-- </video> -->
+          <!-- </div> -->
+          <!-- <p> -->
+            <!-- Compared to a simple gripper heuristic, Adaptive Speed Modulation will detect the motion complexity of the action sequence and adjust the execution speed accordingly. -->
+            <!-- As an inherent result, policy execution is only sped up when the motion is linear and smooth, and is only slowed down for complex motion  -->
+            <!-- (e.g. precise manipulation). In the above video, blue stars represent extracted waypoints and green stars represent clusters of complex motion segments. -->
 
-          </p>
-        </div>
-      </div>
-    </div>
+          <!-- </p> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
 
         <!-- Speed adaptation plot -->
-        <div class="columns">
-          <div class="column is-half">
-            <div class="content">
-              <div class="centered-image">
-                <img src="static/images/success_rate_plot_AS.png" alt="reach pose" width="90%">
-              </div>
-            </div>
-          </div>
+        <!-- <div class="columns"> -->
+          <!-- <div class="column is-half"> -->
+            <!-- <div class="content"> -->
+              <!-- <div class="centered-image"> -->
+                <!-- <img src="static/images/success_rate_plot_AS.png" alt="reach pose" width="90%"> -->
+              <!-- </div> -->
+            <!-- </div> -->
+          <!-- </div> -->
 
           <!-- Plot Description -->
-          <div class="column is-half">
-            <div class="content">
-              <p>
-                <strong>Metrics.</strong>  Adaptive Speed Modulation is necessary
-                for success in high-precision tasks. As seen in the results
-                to the left, our ablation baseline (SAIL-AS) without ASM achieves a reduced success rate
-                when compared to SAIL. Since tasks like Square, Stack, and Mug
-                require precise motion, even minor errors in tracking or model
-                prediction can lead to failure, hence why it is important to slow
-                down.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+          <!-- <div class="column is-half"> -->
+            <!-- <div class="content"> -->
+              <!-- <p> -->
+                <!-- <strong>Metrics.</strong>  Adaptive Speed Modulation is necessary -->
+                <!-- for success in high-precision tasks. As seen in the results -->
+                <!-- to the left, our ablation baseline (SAIL-AS) without ASM achieves a reduced success rate -->
+                <!-- when compared to SAIL. Since tasks like Square, Stack, and Mug -->
+                <!-- require precise motion, even minor errors in tracking or model -->
+                <!-- prediction can lead to failure, hence why it is important to slow -->
+                <!-- down. -->
+              <!-- </p> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </div> -->
+      <!-- </div> -->
 
 
     <!-- Interesting Phenomena/Takeaways? -->
    <!-- … your outer wrapper … -->
 <div class="columns is-centered has-text-centered">
   <div class="column">
-    <h2 class="title is-4">Interesting Phenomena</h2>
+    <h2 class="title is-4">Other Qualitative Findings</h2>
     <div class="content has-text-centered">
       <p>
         We show some interesting phenomena that we observed during the experiments:
@@ -617,7 +627,7 @@
         <div style="display:inline-block; width:480px;">
         <div class="video-crop">
           <video autoplay muted loop playsinline controls>
-            <source src="./static/videos/real-robot/reactive_compressed.mp4"
+            <source src="./static/videos/real-robot/reactiveness.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -652,13 +662,14 @@
         <div style="display:inline-block; width:480px;">
         <div class="video-crop">
           <video autoplay muted loop playsinline controls>
-            <source src="./static/videos/real-robot/low_fidelity_controller.mp4"
+            <source src="./static/videos/real-robot/low_gain_controller.mp4"
                     type="video/mp4">
           </video>
         </div>
         <p class="has-text-centered mt-2">
-          <strong>Poor controller:</strong>
-          using a low-fidelity controller leads to poor tracking performance and task failure.
+          <strong>Controller impact:</strong>
+          using the same controller as the demonstration leads to failure due to poor tracking. 
+          A high-gain controller with feedforward is necessary to achieve high speed.
         </p>
         </div>
       </div>
@@ -674,8 +685,8 @@
         </div>
         <p class="has-text-centered mt-2">
           <strong>Interesting failures:</strong>
-          when tuned to the maximum speed, SAIL can fail in interesting ways, such as throwing objects
-          out of the workspace.
+          when tuned to high speed, SAIL can fail in interesting ways, such as throwing objects
+          out of the workspace. Future work could explore how to handle these dynamics shifts.
         </p>
       </div>
       </div>
