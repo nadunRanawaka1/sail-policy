@@ -27,16 +27,18 @@
       padding-bottom: 1.5rem;
     }
 
+
+
     .title.is-3 {
       margin-bottom: 1rem !important;
     }
 
     /* Block divider for Key Findings section */
     .block-divider {
-      height: 2px;
-      background-color: #666666;
+      height: 4px;
+      background-color: #599be7;
       margin: 2rem auto;
-      width: 90%;
+      width: 95%;
       max-width: 900px;
     }
   </style>
@@ -368,35 +370,29 @@
         <div class="content has-text-justified">
           <!-- SAIL system overview picture -->
           <div class="centered-image">
-            <img src="static/images/SAIL_system_overview.png" alt="SAIL Overview" width="150%">
+            <!-- <img src="static/images/SAIL_system_overview.png" alt="SAIL Overview" width="150%"> -->
+            <img src="static/images/SAIL_framework_CoRL.png" alt="SAIL Overview" width="150%">
           </div>
+          <div style="margin: 1rem 0;"></div>
           <p>
             Speeding up visuomotor policies is a <strong> full-stack</strong> problem. SAIL provides a recipe to address the challenges that arise 
             from sped up execution -
             <br>
             <strong>(a) Policy Level:</strong> Starting with synchronized observations from robot state
-            and camera inputs, the system generates (1) temporally-consistent action predictions through action-conditioned CFG and (2) time-varying action interval δt. <br> <strong>(b) Controller Level:</strong> The predicted actions are scheduled for execution while accounting for sensing-inference delays, with outdated actions being discarded. The
-            scheduled actions are executed using a high-gain controller with velocity feedforward terms to track trajectory at the specified time parametrization.
+            and camera inputs, the system generates (1) temporally-consistent action predictions through error-adaptive guidance (EAG) and (2) time-varying speedup factor. <br> <strong>(b) Controller Level:</strong> The predicted actions are scheduled for execution while accounting for sensing-inference delays, with outdated actions being discarded. The
+            scheduled actions are executed by a high-fidelity tracking controller to track the trajectory at the specified time parametrization.
           </p>
         </div>
       </div>
     </div>
 
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ##### Key Findings ##### -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered mb-3"></h2>
+    <div class="block-divider"></div>
     
     <!-- Block 1 -->
     <div class="block mb-4">
-      <h2 class="title is-4 has-text-left mb-3"> Challenge 1. Minimizing Controller Dynamics Shifts</h2>
+      <h2 class="title is-4 has-text-left mb-3 has-text-weight-bold"> Challenge 1: Minimizing Controller Dynamics Shifts</h2>
       <div class="has-text-centered">
-        <video autoplay muted loop playsinline controls width="50%">
+        <video autoplay muted loop playsinline controls width="45%">
           <source src="./static/videos/method_reach_pose.mp4" type="video/mp4">
         </video>
       </div>
@@ -404,8 +400,9 @@
         Naively using the teleoperation commands from the demonstrator to speed up execution results in an altered motion trajectory.
         To solve this, SAIL trains policies on the actual reached poses of the robot and uses a high-gain controller to track these poses.
       </p>
-      <h2 class="title is-4 has-text-left mb-3"> Finding 1. Tracking <span style="color: #006400;"><strong>reached</strong></span> Poses Minimizes Controller Dynamics Shift</h2>
-      <video autoplay muted loop playsinline controls width="100%">
+      <div style="margin: 1rem 0;"></div>
+      <h2 class="title is-4 has-text-left mb-3"> Finding: Tracking <span style="color: #29a029;"><strong>Reached</strong></span> Poses Minimizes Controller Dynamics Shift</h2>
+      <video autoplay muted loop playsinline controls width="80%" style="margin: 0 auto; display: block;">
         <source src="./static/videos/solutions/reached_poses.mp4" type="video/mp4">
       </video>
     </div>
@@ -425,7 +422,9 @@
         are executed. This enables continuous execution without pausing for inference. However, this can sometimes lead to diverging predictions that 
         result in jerky robot movement. To address this, SAIL conditions the new prediction on the previous one to generate consistent and smooth trajectories.
       </p>
-      <video autoplay muted loop playsinline controls width="100%">
+      <div style="margin: 1rem 0;"></div>
+      <h2 class="title is-4 has-text-left mb-3"> Finding: <span style="color: #599be7;">Error Adaptive Guidance</span> Enables Smoother Trajectories</h2>
+      <video autoplay muted loop playsinline controls width="75%" style="margin: 0 auto; display: block;">
         <source src="./static/videos/solutions/eag.mp4" type="video/mp4">
       </video>
     </div>
@@ -441,7 +440,9 @@
         SAIL uses Adaptive Speed Modulation (ASM) to adjust the execution speed of the policy based on the complexity of the action sequence.
         This allows SAIL to speed up for linear motions and slow down for precise manipulation.
       </p>
-      <video autoplay muted loop playsinline controls width="100%">
+      <div style="margin: 1rem 0;"></div>
+      <h2 class="title is-4 has-text-left mb-3"> Finding: Adaptive Speed Modulation Improves Success Rate</h2>
+      <video autoplay muted loop playsinline controls width="75%" style="margin: 0 auto; display: block;">
         <source src="./static/videos/solutions/asm.mp4" type="video/mp4">
       </video>
     </div>
@@ -456,9 +457,11 @@
         We propose an action scheduling mechanism to handle real-world system latencies and maintain continuous execution.
       </p>
       <div class="centered-image">
-        <img src="static/images/method_system_opt.png" alt="Figure showing how latencies are handled" width="75%">
+        <img src="static/images/method_system_opt.png" alt="Figure showing how latencies are handled" width="55%">
       </div>
-      <video autoplay muted loop playsinline controls width="100%">
+      <div style="margin: 1rem 0;"></div>
+      <h2 class="title is-4 has-text-left mb-3"> Finding: Action Scheduling Ensures Smoother Execution</h2>
+      <video autoplay muted loop playsinline controls width="75%" style="margin: 0 auto; display: block;">
         <source src="./static/videos/solutions/action_scheduling.mp4" type="video/mp4">
       </video>
     </div>
@@ -638,7 +641,7 @@
               <div class="content">
                 <div class="centered-image">
                   <!-- <img src="static/images/method1_reach_pose_command_pose.png" alt="reach pose" width="100%"> -->
-                  <video poster="" id="reach pose" autoplay controls muted loop playsinline height="70%">
+                  <video poster="" id="reach pose" autoplay controls muted loop playsinline height="45%" style="margin: 0 auto; display: block;">
                     <source src="./static/videos/cond_bm_false_cfg_weight_1_xy.mp4"
                           type="video/mp4">
                   </video>
@@ -653,7 +656,7 @@
             <div class="column is-half">
               <div class="content">
                 <div class="centered-image">
-                  <video poster="" id="reach pose" autoplay controls muted loop playsinline height="70%">
+                  <video poster="" id="reach pose" autoplay controls muted loop playsinline height="45%" style="margin: 0 auto; display: block;">
                     <source src="./static/videos/cond_bm_false_cfg_weight_1_xy_spatial.mp4"
                           type="video/mp4">
                   </video>
@@ -746,7 +749,7 @@
 <div class="columns is-centered has-text-centered">
   <div class="column">
     <h2 class="title is-4">Other Qualitative Findings</h2>
-    <div class="content has-text-centered">
+    <div class="content has-text-left">
       <p>
         We show some interesting phenomena that we observed during the experiments:
       </p>
@@ -755,7 +758,7 @@
     <!-- Two side by side videos -->
     <div class="columns is-centered ">
       <!-- first video + caption -->
-      <div class="column is-narrow has-text-centered">
+      <div class="column is-narrow has-text-left">
         <div style="display:inline-block; width:480px;">
         <div class="video-crop">
           <video autoplay muted loop playsinline controls>
@@ -771,7 +774,7 @@
       </div>
 
       <!-- second video only -->
-      <div class="column is-narrow has-text-centered">
+      <div class="column is-narrow has-text-left">
         <div style="display:inline-block; width:480px;">
         <div class="video-crop">
           <video autoplay muted loop playsinline controls>
@@ -790,7 +793,7 @@
     <!-- Second row of two side by side videos -->
     <div class="columns is-centered ">
       <!-- first video + caption -->
-      <div class="column is-narrow has-text-centered">
+      <div class="column is-narrow has-text-left">
         <div style="display:inline-block; width:480px;">
         <div class="video-crop">
           <video autoplay muted loop playsinline controls>
@@ -807,7 +810,7 @@
       </div>
 
       <!-- second video only -->
-      <div class="column is-narrow has-text-centered">
+      <div class="column is-narrow has-text-left">
         <div style="display:inline-block; width:480px;">
         <div class="video-crop">
           <video autoplay muted loop playsinline controls>
