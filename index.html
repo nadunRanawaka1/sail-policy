@@ -394,15 +394,14 @@
     
     <!-- Block 1 -->
     <div class="block mb-4">
-      <h2 class="title is-4 has-text-left mb-3"> Challenge 1. Minimizing Controller Dynamics Shifts</h2>
+      <h2 class="title is-4 has-text-left mb-3"> Challenge 1. Controller Dynamics Shift During Speedup</h2>
       <div class="has-text-centered">
         <video autoplay muted loop playsinline controls width="50%">
           <source src="./static/videos/method_reach_pose.mp4" type="video/mp4">
         </video>
       </div>
       <p class="has-text-justified">
-        Naively using the teleoperation commands from the demonstrator to speed up execution results in an altered motion trajectory.
-        To solve this, SAIL trains policies on the actual reached poses of the robot and uses a high-gain controller to track these poses.
+       Speeding up increases tracking error for commanded poses.
       </p>
       <video autoplay muted loop playsinline controls width="100%">
         <source src="./static/videos/solutions/reached_poses.mp4" type="video/mp4">
@@ -413,7 +412,7 @@
 
     <!-- Block 2 -->
     <div class="block mb-4">
-      <h2 class="title is-4 has-text-left mb-3"> Challenge 2. Generating Consistent Action Trajectories</h2>
+      <h2 class="title is-4 has-text-left mb-3"> Challenge 2. Action Inconsistency with Asynchronous Inference</h2>
       <div class="has-text-centered">
         <video autoplay muted loop playsinline controls width="50%">
           <source src="./static/videos/divergence_animation.mp4" type="video/mp4">
@@ -433,7 +432,7 @@
 
     <!-- Block 3 -->
     <div class="block mb-4">
-      <h2 class="title is-4 has-text-left mb-3"> Challenge 3. Adaptive Speed Modulation</h2>
+      <h2 class="title is-4 has-text-left mb-3"> Challenge 3. Deciding when to Speed Up and Slow Down</h2>
       <p class="has-text-justified">
         It is sometimes necessary to slow down the execution of the policy to ensure success in tasks that require high precision,
         or due to hardware limitations.
@@ -449,7 +448,7 @@
 
     <!-- Block 4 -->
     <div class="block mb-4">
-      <h2 class="title is-4 has-text-left mb-3"> Challenge 4. Handling system latencies</h2>
+      <h2 class="title is-4 has-text-left mb-3"> Challenge 4. System and Inference Latencies</h2>
       <p class="has-text-justified">
         System latencies can lead to out-of-distribution inputs, time-misaligned commands or pausing during inference. 
         We propose an action scheduling mechanism to handle real-world system latencies and maintain continuous execution.
