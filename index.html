@@ -20,6 +20,27 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
+  <style>
+    /* Global section spacing */
+    .section {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .title.is-3 {
+      margin-bottom: 1rem !important;
+    }
+
+    /* Block divider for Key Findings section */
+    .block-divider {
+      height: 2px;
+      background-color: #666666;
+      margin: 2rem auto;
+      width: 90%;
+      max-width: 900px;
+    }
+  </style>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -63,7 +84,7 @@
       <video id="teaser" autoplay muted loop playsinline controls height="100%">
         <source src="./static/videos/teaser.mp4" type="video/mp4">
       </video>      
-      <p class="has-text-centered">Scroll for more! ⬇️</p>
+      <!-- <p class="has-text-centered">Scroll for more! ⬇️</p> -->
       <!-- <h2 class="subtitle has-text-centered">
         <span class="dnerf">SAIL</span> teaser video here.
       </h2> -->
@@ -111,11 +132,10 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column ">
-        <h4 class="title is-4"><strong>TL;DR</strong> - SAIL (Speed Adaptation for Imitation Learning) is a system for improving the speed and 
-          throughput of robots trained with imitation learning.</h4>
-        <div class="content has-text-justified">
-          <p>
-          
+        <!-- <h4 class="title is-4"><strong>TL;DR</strong> - ⛵SAIL is a system for improving the speed and 
+          throughput of robots trained with imitation learning.</h4> -->
+        <h4 class="title is-4"><strong>TL;DR</strong> - Our system makes IL policies execution 3.2x faster than demonstration data.</h4>
+        <div class="content has-text-justified">          
 <!-- 
           Offline Imitation Learning (IL) methods such as Behavior Cloning (BC) 
           are effective at acquiring complex robotic manipulation skills. 
@@ -135,7 +155,7 @@
            across simulation and two real robot platforms shows that SAIL achieves up to 
            a <strong>4× speedup</strong> over demonstration speed in simulation and 
            up to <strong>3.2× speedup</strong> on physical robots. -->
-          </p>
+
         </div>
       </div>
     </div>
@@ -158,33 +178,127 @@
       <!-- Demo Videos Section with Tabs -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered"> 🚀 Faster, 🌊 Smoother, ✨ Better</h2>
-    <p class="has-text-centered">
-      <!-- We extensively test SAIL on <strong>6 tasks</strong> across <strong>two real robot</strong> platforms, demonstrating smoother trajectory and careful system design lead to <strong>3.2× speedup</strong> over demonstration speed. -->
-    </p>
+    <h2 class="title is-3 has-text-centered"> 🚀 Faster, 🌊 Smoother, ✨ Better <span class="has-text-weight-normal is-size-6" style="margin-left: 1em;">(click for more⬇️)</span></h2>
     <!-- Video Tabs -->
     <div class="tabs is-centered is-medium mb-3 real-world-tabs">
       <ul>
-        <li data-target="video1">
-          <a><strong>Stacking Cup</strong></a>
+        <li data-target="video1" class="tab-item">
+          <a class="has-text-weight-bold">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-play-circle"></i>
+              </span>
+              <span>Stacking Cup</span>
+            </span>
+          </a>
         </li>
-        <li data-target="video2">
-          <a><strong>Wiping Board</strong></a>
+        <li data-target="video2" class="tab-item">
+          <a class="has-text-weight-bold">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-play-circle"></i>
+              </span>
+              <span>Wiping Board</span>
+            </span>
+          </a>
         </li>
-        <li data-target="video3">
-          <a><strong>Baking</strong></a>
+        <li data-target="video3" class="tab-item">
+          <a class="has-text-weight-bold">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-play-circle"></i>
+              </span>
+              <span>Baking</span>
+            </span>
+          </a>
         </li>
-        <li data-target="video4">
-          <a><strong>Folding Cloth</strong></a>
+        <li data-target="video4" class="tab-item">
+          <a class="has-text-weight-bold">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-play-circle"></i>
+              </span>
+              <span>Folding Cloth</span>
+            </span>
+          </a>
         </li>
-        <li class="is-active" data-target="video5">
-          <a><strong>Plate Fruits</strong></a>
+        <li class="is-active tab-item" data-target="video5">
+          <a class="has-text-weight-bold">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-play-circle"></i>
+              </span>
+              <span>Plate Fruits</span>
+            </span>
+          </a>
         </li>
-        <li data-target="video6">
-          <a><strong>Bimanual Serve</strong></a>
+        <li data-target="video6" class="tab-item">
+          <a class="has-text-weight-bold">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-play-circle"></i>
+              </span>
+              <span>Bimanual Serve</span>
+            </span>
+          </a>
         </li>
       </ul>
     </div>
+
+    <style>
+      .tab-item {
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        margin: 0 1px;
+      }
+      
+      .tab-item:hover {
+        background-color: #f5f5f5;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .tab-item.is-active {
+        background-color: #3273dc;
+        color: white !important;
+      }
+      
+      .tab-item.is-active a {
+        color: white !important;
+      }
+      
+      .tab-item a {
+        padding: 0.3em 0.6em;
+        border-radius: 8px;
+        white-space: nowrap;
+        font-size: 0.95em;
+      }
+      
+      .icon-text {
+        display: flex;
+        align-items: center;
+        gap: 0.05em;
+      }
+      
+      .icon {
+        transition: transform 0.3s ease;
+        font-size: 0.8em;
+      }
+      
+      .tab-item:hover .icon {
+        transform: scale(1.2);
+      }
+
+      .tabs ul {
+        flex-wrap: nowrap;
+        justify-content: center;
+      }
+    </style>
+
+    <!-- <p class="has-text-centered"> -->
+      <!-- Click on the tabs to watch tasks videos in <strong>1x</strong> video speed. -->
+      <!-- We extensively test SAIL on <strong>6 tasks</strong> across <strong>two real robot</strong> platforms, demonstrating smoother trajectory and careful system design lead to <strong>3.2× speedup</strong> over demonstration speed. -->
+    <!-- </p> -->
 
     <!-- Video Container -->
     <div class="columns is-centered real-world-content">
@@ -195,7 +309,7 @@
             <!-- <source src="./static/videos/stacking_cup_sail_baseline.mp4" type="video/mp4"> -->
             <source src="./static/videos/real-robot/stack.mp4" type="video/mp4">
           </video>
-          <p class="has-text-centered mt-2">Stacking Cups to Pyramid Shape</p>
+          <!-- <p class="has-text-centered mt-2">Stacking Cups to Pyramid Shape</p> -->
         </div>
         
         <!-- Video 2 -->
@@ -203,7 +317,7 @@
           <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
             <source src="./static/videos/real-robot/wipe.mp4" type="video/mp4">
           </video>
-          <p class="has-text-centered mt-2">Wiping Board</p>
+          <!-- <p class="has-text-centered mt-2">Wiping Board</p> -->
         </div>
         
         <!-- Video 3 -->
@@ -211,7 +325,7 @@
           <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
             <source src="./static/videos/real-robot/bake.mp4" type="video/mp4">
           </video>
-          <p class="has-text-centered mt-2">Baking: pick up bowl and put them in the oven</p>
+          <!-- <p class="has-text-centered mt-2">Baking: pick up bowl and put them in the oven</p> -->
         </div>
         
         <!-- Video 4 -->
@@ -219,7 +333,7 @@
           <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
             <source src="./static/videos/real-robot/fold.mp4" type="video/mp4">
           </video>
-          <p class="has-text-centered mt-2">Folding Cloth</p>
+          <!-- <p class="has-text-centered mt-2">Folding Cloth</p> -->
         </div>
 
         <!-- Video 5 -->
@@ -227,7 +341,7 @@
           <video autoplay muted loop playsinline controls height="300px" width="100%" onended="handleVideoEnd(this)">
             <source src="./static/videos/SAIL_place_fruit.mp4" type="video/mp4">
           </video>
-          <p class="has-text-centered mt-2">Plate Fruits</p>
+          <!-- <p class="has-text-centered mt-2">Plate Fruits</p> -->
         </div>
 
         <!-- Video 6: Bimanual Serve -->
@@ -235,12 +349,14 @@
           <video autoplay muted loop playsinline controls width="100%" onended="handleVideoEnd(this)">
             <source src="./static/videos/SAIL_bimanual.mp4" type="video/mp4">
           </video>
-          <p class="has-text-centered mt-2">Bimanual Serve: pick up the peach, put it in the bowl and serve</p>
+          <!-- <p class="has-text-centered mt-2">Bimanual Serve: pick up the peach, put it in the bowl and serve</p> -->
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="section-divider"></div>
 
 <!-- method overview and challenges -->
 <section class="section">
@@ -255,8 +371,7 @@
             <img src="static/images/SAIL_system_overview.png" alt="SAIL Overview" width="150%">
           </div>
           <p>
-            Speeding up visuomotor policies is a <strong> full-stack</strong> problem that requires a careful
-            redesign of the imitation learning framework. SAIL provides a recipe to address the challenges that arise 
+            Speeding up visuomotor policies is a <strong> full-stack</strong> problem. SAIL provides a recipe to address the challenges that arise 
             from sped up execution -
             <br>
             <strong>(a) Policy Level:</strong> Starting with synchronized observations from robot state
@@ -270,91 +385,78 @@
   </div>
 </section>
 
+<div class="section-divider"></div>
 
 <!-- ##### Key Findings ##### -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered mb-3"></h2>
-    <div class="content has-text-justified">
-      <p>
-
-      </p>
-    </div>
     
     <!-- Block 1 -->
     <div class="block mb-4">
-      <!-- <div class="box mb-2"> -->
-        <h2 class="title is-4 has-text-left mb-3"> Challenge 1. Minimizing Controller Dynamics Shifts</h2>
-        <div class="has-text-centered">
-        <video autoplay muted loop playsinline controls width="75%">
+      <h2 class="title is-4 has-text-left mb-3"> Challenge 1. Minimizing Controller Dynamics Shifts</h2>
+      <div class="has-text-centered">
+        <video autoplay muted loop playsinline controls width="50%">
           <source src="./static/videos/method_reach_pose.mp4" type="video/mp4">
         </video>
       </div>
-        <p class="has-text-justified">
-          
-          Naively using the teleoperation commands from the demonstrator to speed up execution results in an altered motion trajectory.
-          To solve this, SAIL trains policies on the actual reached poses of the robot and uses a high-gain controller to track these poses.
-        </p>
-      <!-- </div> -->
-      
+      <p class="has-text-justified">
+        Naively using the teleoperation commands from the demonstrator to speed up execution results in an altered motion trajectory.
+        To solve this, SAIL trains policies on the actual reached poses of the robot and uses a high-gain controller to track these poses.
+      </p>
       <video autoplay muted loop playsinline controls width="100%">
         <source src="./static/videos/solutions/reached_poses.mp4" type="video/mp4">
       </video>
     </div>
 
+    <div class="block-divider"></div>
+
     <!-- Block 2 -->
     <div class="block mb-4">
-      <!-- <div class="box mb-2"> -->
-       <h2 class="title is-4 has-text-left mb-3"> Challenge 2. Generating Consistent Action Trajectories</h2>
-       <div class="has-text-centered">
-        <video autoplay muted loop playsinline controls width="75%">
+      <h2 class="title is-4 has-text-left mb-3"> Challenge 2. Generating Consistent Action Trajectories</h2>
+      <div class="has-text-centered">
+        <video autoplay muted loop playsinline controls width="50%">
           <source src="./static/videos/divergence_animation.mp4" type="video/mp4">
         </video>
       </div>
-        <p class="has-text-justified">
-          
-          SAIL performs asynchronous inference during execution i.e. a new inference is started before all the actions from the previous prediction
-          are executed. This enables continuous execution without pausing for inference. However, this can sometimes lead to diverging predictions that 
-          result in jerky robot movement. To address this, SAIL conditions the new prediction on the previous one to generate consistent and smooth trajectories.
-        </p>
-      <!-- </div> -->
+      <p class="has-text-justified">
+        SAIL performs asynchronous inference during execution i.e. a new inference is started before all the actions from the previous prediction
+        are executed. This enables continuous execution without pausing for inference. However, this can sometimes lead to diverging predictions that 
+        result in jerky robot movement. To address this, SAIL conditions the new prediction on the previous one to generate consistent and smooth trajectories.
+      </p>
       <video autoplay muted loop playsinline controls width="100%">
         <source src="./static/videos/solutions/eag.mp4" type="video/mp4">
       </video>
     </div>
 
+    <div class="block-divider"></div>
+
     <!-- Block 3 -->
     <div class="block mb-4">
-      <!-- <div class="box mb-2"> -->
-        <h2 class="title is-4 has-text-left mb-3"> Challenge 3. Adaptive Speed Modulation</h2>
-        <p class="has-text-justified">
-          It is sometimes necessary to slow down the execution of the policy to ensure success in tasks that require high precision,
-          or due to hardware limitations.
-          SAIL uses Adaptive Speed Modulation (ASM) to adjust the execution speed of the policy based on the complexity of the action sequence.
-          This allows SAIL to speed up for linear motions and slow down for precise manipulation.
-        </p>
-
-      <!-- </div> -->
+      <h2 class="title is-4 has-text-left mb-3"> Challenge 3. Adaptive Speed Modulation</h2>
+      <p class="has-text-justified">
+        It is sometimes necessary to slow down the execution of the policy to ensure success in tasks that require high precision,
+        or due to hardware limitations.
+        SAIL uses Adaptive Speed Modulation (ASM) to adjust the execution speed of the policy based on the complexity of the action sequence.
+        This allows SAIL to speed up for linear motions and slow down for precise manipulation.
+      </p>
       <video autoplay muted loop playsinline controls width="100%">
         <source src="./static/videos/solutions/asm.mp4" type="video/mp4">
       </video>
     </div>
 
+    <div class="block-divider"></div>
+
     <!-- Block 4 -->
     <div class="block mb-4">
-      <!-- <div class="box mb-2"> -->
-        <h2 class="title is-4 has-text-left mb-3"> Challenge 4. Handling system latencies</h2>
-        <p class="has-text-justified">
-          
-          System latencies can lead to out-of-distribution inputs, time-misaligned commands or pausing during inference. 
-          We propose an action scheduling mechanism to handle real-world system latencies and maintain continuous execution.
-
-        </p>
-
-        <div class="centered-image">
-            <img src="static/images/method_system_opt.png" alt="Figure showing how latencies are handled" width="75%">
-          </div>
-      <!-- </div> -->
+      <h2 class="title is-4 has-text-left mb-3"> Challenge 4. Handling system latencies</h2>
+      <p class="has-text-justified">
+        System latencies can lead to out-of-distribution inputs, time-misaligned commands or pausing during inference. 
+        We propose an action scheduling mechanism to handle real-world system latencies and maintain continuous execution.
+      </p>
+      <div class="centered-image">
+        <img src="static/images/method_system_opt.png" alt="Figure showing how latencies are handled" width="75%">
+      </div>
       <video autoplay muted loop playsinline controls width="100%">
         <source src="./static/videos/solutions/action_scheduling.mp4" type="video/mp4">
       </video>
@@ -363,6 +465,7 @@
   </div>
 </section>
 
+<div class="section-divider"></div>
 
 <!-- ##### Simulation Videos Section with Tabs ##### -->
 <section class="section">
@@ -422,6 +525,8 @@
     </div>
   </div>
 </section>
+
+<div class="section-divider"></div>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -579,7 +684,6 @@
           <!-- </p> -->
         <!-- </div> -->
       <!-- </div> -->
-    <!-- </div> -->
 
         <!-- Speed adaptation plot -->
         <!-- <div class="columns"> -->
@@ -701,6 +805,8 @@
   </div>
 </section>
 
+<div class="section-divider"></div>
+
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Limitations</h2>
@@ -712,14 +818,19 @@
   </div>
 </section>
 
-<!-- <section class="section">
+<div class="section-divider"></div>
+
+<section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Acknowledgement</h2>
     <p>
-      TODO: add acknowledgement
+      This work is supported by the State of Georgia and the Agricultural Technology Research Program at Georgia Tech, AI Manufacturing Pilot Facility project under Georgia Artificial Intelligence in Manufacturing (Georgia AIM), Award 04-79-07808, NSF CCF program, Award 2211815, and NSF Award 1937592.
+      The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies, either expressed or implied, of the sponsors.
     </p>
   </div>
-</section> -->
+</section>
+
+<div class="section-divider"></div>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
