@@ -390,42 +390,53 @@
     
     <!-- Block 1 -->
     <div class="block mb-4">
-      <h2 class="title is-4 has-text-left mb-3"> Challenge 1. Controller Dynamics Shift During Speedup</h2>
-      <div class="has-text-centered">
-        <video autoplay muted loop playsinline controls width="45%">
-          <source src="./static/videos/method_reach_pose.mp4" type="video/mp4">
-        </video>
+      <h2 class="title is-4 has-text-left mb-3"> Challenge 1. System and Inference Latencies</h2>
+      
+      <div class="centered-image">
+        <img src="static/images/method_system_opt.png" alt="Figure showing how latencies are handled" width="55%">
       </div>
+      <div style="margin: 1rem 0;"></div>
       <p class="has-text-justified">
-       Speeding up increases tracking error for commanded poses.
+        System latencies can cause OOD inputs, time-misaligned commands or pausing during inference. 
       </p>
       <div style="margin: 1rem 0;"></div>
-      <h2 class="title is-4 has-text-left mb-3"> Finding: Tracking <span style="color: #29a029;"><strong>Reached</strong></span> Poses Minimizes Controller Dynamics Shift</h2>
-      <video autoplay muted loop playsinline controls width="80%" style="margin: 0 auto; display: block;">
-        <source src="./static/videos/solutions/reached_poses.mp4" type="video/mp4">
+      <h2 class="title is-4 has-text-left mb-3"> Solution 1. Action Scheduling Ensures Smoother Execution</h2>
+      
+      <video autoplay muted loop playsinline controls width="75%" style="margin: 0 auto; display: block;">
+        <source src="./static/videos/solutions/action_scheduling.mp4" type="video/mp4">
       </video>
+      <div style="margin: 1rem 0;"></div>
+      <p class="has-text-justified">
+        SAIL uses action scheduling to handle system latencies. Observations are synchronized and inference performed asynchronously.
+        This enables smooth execution without pausing for inference.
+      </p>
     </div>
-
     <div class="block-divider"></div>
 
     <!-- Block 2 -->
     <div class="block mb-4">
       <h2 class="title is-4 has-text-left mb-3"> Challenge 2. Action Inconsistency with Asynchronous Inference</h2>
       <div class="has-text-centered">
-        <video autoplay muted loop playsinline controls width="50%">
+        <video autoplay muted loop playsinline controls width="75%">
           <source src="./static/videos/divergence_animation.mp4" type="video/mp4">
         </video>
       </div>
-      <p class="has-text-justified">
-        SAIL performs asynchronous inference during execution i.e. a new inference is started before all the actions from the previous prediction
-        are executed. This enables continuous execution without pausing for inference. However, this can sometimes lead to diverging predictions that 
-        result in jerky robot movement. To address this, SAIL conditions the new prediction on the previous one to generate consistent and smooth trajectories.
-      </p>
       <div style="margin: 1rem 0;"></div>
-      <h2 class="title is-4 has-text-left mb-3"> Finding: <span style="color: #599be7;">Error Adaptive Guidance</span> Enables Smoother Trajectories</h2>
+      <p class="has-text-justified">
+      Asynchronous inference can lead to diverging predictions that result in jerky robot movement. 
+      </p>
+      
+      <div style="margin: 1rem 0;"></div>
+      <h2 class="title is-4 has-text-left mb-3"> Solution 2. <span style="color: #599be7;">Error Adaptive Guidance</span> Enables Smoother Trajectories</h2>
+
       <video autoplay muted loop playsinline controls width="75%" style="margin: 0 auto; display: block;">
         <source src="./static/videos/solutions/eag.mp4" type="video/mp4">
       </video>
+      <div style="margin: 1rem 0;"></div>
+      <p class="has-text-justified">
+      SAIL conditions the new prediction on the previous one using Error Adaptive Guidance.
+      This informs the policy of future actions allowing it to generate smooth and consistent trajectories.
+      </p>
     </div>
 
     <div class="block-divider"></div>
@@ -436,34 +447,46 @@
       <p class="has-text-justified">
         It is sometimes necessary to slow down the execution of the policy to ensure success in tasks that require high precision,
         or due to hardware limitations.
-        SAIL uses Adaptive Speed Modulation (ASM) to adjust the execution speed of the policy based on the complexity of the action sequence.
-        This allows SAIL to speed up for linear motions and slow down for precise manipulation.
       </p>
       <div style="margin: 1rem 0;"></div>
-      <h2 class="title is-4 has-text-left mb-3"> Finding: Adaptive Speed Modulation Improves Success Rate</h2>
+      <h2 class="title is-4 has-text-left mb-3"> Solution 3. Adaptive Speed Modulation</h2>
       <video autoplay muted loop playsinline controls width="75%" style="margin: 0 auto; display: block;">
         <source src="./static/videos/solutions/asm.mp4" type="video/mp4">
       </video>
+      <div style="margin: 1rem 0;"></div>
+      <p class="has-text-justified">
+        SAIL uses Adaptive Speed Modulation (ASM) to adjust the execution speed of the policy based on the complexity of the action sequence.
+      </p>
     </div>
 
     <div class="block-divider"></div>
 
     <!-- Block 4 -->
-    <div class="block mb-4">
-      <h2 class="title is-4 has-text-left mb-3"> Challenge 4. System and Inference Latencies</h2>
-      <p class="has-text-justified">
-        System latencies can lead to out-of-distribution inputs, time-misaligned commands or pausing during inference. 
-        We propose an action scheduling mechanism to handle real-world system latencies and maintain continuous execution.
-      </p>
-      <div class="centered-image">
-        <img src="static/images/method_system_opt.png" alt="Figure showing how latencies are handled" width="55%">
+     <div class="block mb-4">
+      <h2 class="title is-4 has-text-left mb-3"> Challenge 4. Controller Dynamics Shift During Speedup</h2>
+      
+      <div class="has-text-centered">
+        <video autoplay muted loop playsinline controls width="45%">
+          <source src="./static/videos/method_reach_pose.mp4" type="video/mp4">
+        </video>
       </div>
       <div style="margin: 1rem 0;"></div>
-      <h2 class="title is-4 has-text-left mb-3"> Finding: Action Scheduling Ensures Smoother Execution</h2>
-      <video autoplay muted loop playsinline controls width="75%" style="margin: 0 auto; display: block;">
-        <source src="./static/videos/solutions/action_scheduling.mp4" type="video/mp4">
+      <p class="has-text-justified">
+      Speeding up teleoperated commands increases tracking error and alters the motion profile.
+      </p>
+      
+      <div style="margin: 1rem 0;"></div>
+      <h2 class="title is-4 has-text-left mb-3"> Solution 4. Tracking <span style="color: #29a029;"><strong>Reached</strong></span> Poses</h2>
+      
+      <video autoplay muted loop playsinline controls width="80%" style="margin: 0 auto; display: block;">
+        <source src="./static/videos/solutions/reached_poses.mp4" type="video/mp4">
       </video>
+      <div style="margin: 1rem 0;"></div>
+      <p class="has-text-justified">
+      We address this by tracking reached poses with high gain, improving performance at higher speeds.
+      </p>
     </div>
+    
 
   </div>
 </section>
