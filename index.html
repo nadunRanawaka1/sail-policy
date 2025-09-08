@@ -58,6 +58,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">⛵ SAIL: Faster-than-Demonstration Execution of Imitation Learning Policies</h1>
+            <h2 class="subtitle is-4" style="color: red;">CoRL 2025 (Oral)</h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="">Nadun Ranawaka Arachchige*</a>, <a href="https://chenzheny.github.io/">Zhenyang Chen*</a>, <a href="https://wonsuhkjung.wordpress.com/">Wonsuhk Jung</a>, 
@@ -66,6 +67,10 @@
               <a href="https://www.shreyaskousik.com/">Shreyas Kousik<sup>&dagger;</sup></a>, <a href="https://faculty.cc.gatech.edu/~danfei/">Danfei Xu<sup>&dagger;</sup></a></span>
               <div class="is-size-5 publication-authors">
                 <span class="author-block">Georgia Institute of Technology</span>
+              </div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">*Equal Contribution</span>
+                <span class="author-block" style="margin-left: 0.5em;"><sup>&dagger;</sup>Equal Advising</span>
               </div>
               
           </div>
@@ -123,39 +128,7 @@
 </section>
 
 
-<!-- abstract -->
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-          Offline Imitation Learning (IL) methods such as Behavior Cloning (BC) 
-          are effective at acquiring complex robotic manipulation skills. 
-          However, existing IL-trained policies are confined to execute the 
-          task at the same speed as shown in the demonstration. This limits 
-          the <span class="dnerf"></span>task throughput</span> of a robotic system, a critical requirement
-           for applications such as industrial automation. In this paper, we introduce
-           and formalize the novel problem of enabling faster-than-demonstration execution
-           of visuomotor policies and identify fundamental challenges in robot dynamics 
-           and state-action distribution shifts. We instantiate the key insights as 
-           SAIL (Speed-Adaptive Imitation Learning), a <span class="dnerf">full-stack system</span> 
-           integrating four tightly-connected components: (1) a consistency-preserving
-           action inference algorithm for smooth motion at high speed, (2) high-fidelity 
-           tracking of controller-invariant motion target, (3) adaptive speed modulation 
-           that dynamically adjusts execution speed based on motion complexity, and (4)
-           action scheduling to handle real-world system latencies. Experiments in 12 tasks
-           across simulation and two real robot platforms shows that SAIL achieves up to 
-           a <strong>4× speedup</strong> over demonstration speed in simulation and 
-           up to <strong>3.2× speedup</strong> on physical robots.
-          </p>
-        </div>
-      </div>
-    </div>
-    -->
-    <!-- Abstract. -->
-<!-- </section> --> 
+
 
 <!-- abstract -->
 <section class="section">
@@ -166,25 +139,6 @@
           throughput of robots trained with imitation learning.</h4> -->
         <h4 class="title is-4"><strong>TL;DR</strong> - Our system makes IL policies execute 3.2x faster than demonstration data.</h4>
         <div class="content has-text-justified">          
-<!-- 
-          Offline Imitation Learning (IL) methods such as Behavior Cloning (BC) 
-          are effective at acquiring complex robotic manipulation skills. 
-          However, existing IL-trained policies are confined to execute the 
-          task at the same speed as shown in the demonstration. This limits 
-          the <span class="dnerf"></span>task throughput</span> of a robotic system, a critical requirement
-           for applications such as industrial automation. In this paper, we introduce
-           and formalize the novel problem of enabling faster-than-demonstration execution
-           of visuomotor policies and identify fundamental challenges in robot dynamics 
-           and state-action distribution shifts. We instantiate the key insights as 
-           SAIL (Speed-Adaptive Imitation Learning), a <span class="dnerf">full-stack system</span> 
-           integrating four tightly-connected components: (1) a consistency-preserving
-           action inference algorithm for smooth motion at high speed, (2) high-fidelity 
-           tracking of controller-invariant motion target, (3) adaptive speed modulation 
-           that dynamically adjusts execution speed based on motion complexity, and (4)
-           action scheduling to handle real-world system latencies. Experiments in 12 tasks
-           across simulation and two real robot platforms shows that SAIL achieves up to 
-           a <strong>4× speedup</strong> over demonstration speed in simulation and 
-           up to <strong>3.2× speedup</strong> on physical robots. -->
 
         </div>
       </div>
@@ -916,15 +870,15 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code> @misc{ranawaka2025sail,
-      title={SAIL: Faster-than-Demonstration Execution of Imitation Learning Policies}, 
-      author={Nadun Ranawaka Arachchige and Zhenyang Chen and Wonsuhk Jung and Woo Chul Shin and Rohan Bansal and Pierre Barroso and Yu Hang He and Yingyang Celine Lin and Benjamin Joffe and Shreyas Kousik and Danfei Xu},
-      year={2025},
-      eprint={2506.11948},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2506.11948}, 
-}</code></pre>
+    <pre><code> 
+    @inproceedings{
+      ranawaka2025sail,
+      title={SAIL: Faster-than-Demonstration Execution of Imitation Learning Policies},
+      author={Nadun Ranawaka Arachchige and Zhenyang Chen and Wonsuhk Jung and Woo Chul Shin and Rohan Bansal and Pierre Barroso and Yu Hang He and Yingyan Celine Lin and Benjamin Joffe and Shreyas Kousik and Danfei Xu},
+      booktitle={9th Annual Conference on Robot Learning},
+      year={2025}
+      }
+</code></pre>
   </div>
 </section>
 
